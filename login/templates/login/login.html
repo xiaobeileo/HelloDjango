@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %} Login {% endblock %}
+{% block css %} <link href="{% static 'login/css/login.css' %}" rel="stylesheet"/> {% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="col-md-4 col-md-offset-4">
+          <form class='form-login' action="/user/login/" method="post">
+              {% if message %}
+                  <div class="alert alert-warning">{{ message }}</div>
+              {% endif %}
+              {% csrf_token %}
+              <h2 class="text-center">Welcome Login</h2>
+
+              <div class="form-group">
+                  {{ loginForm.username.label_tag }}
+                  {{ loginForm.username}}
+              </div>
+              <div class="form-group">
+                  {{ loginForm.password.label_tag }}
+                  {{ loginForm.password }}
+              </div>
+                <div class="form-group">
+                    {{ loginForm.captcha.errors }}
+                    {{ loginForm.captcha.label_tag }}
+                    {{ loginForm.captcha }}
+                </div>
+{#              <div class="form-group">#}
+{#                <label for="id_username">Username:</label>#}
+{#                <input type="text" name='username' class="form-control" id="id_username" placeholder="Username" autofocus required>#}
+{#              </div>#}
+{#              <div class="form-group">#}
+{#                <label for="id_password">Password:</label>#}
+{#                <input type="password" name='password' class="form-control" id="id_password" placeholder="Password" required>#}
+{#              </div>#}
+              <button type="reset" class="btn btn-default pull-left">Reset</button>
+              <button type="submit" class="btn btn-primary pull-right">Submit</button>
+          </form>
+        </div>
+    </div> <!-- /container -->
+{% endblock %}
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Login</title>#}
+{#</head>#}
+{#<body>#}
+{#<h1>Login Page</h1>#}
+{#    <div style=""margin: 15% 40% ;">#}
+{#        <h1>Welcome!</h1>#}
+{#        <form action="/login/" method="post">#}
+{#            <p>#}
+{#                <label for="'id_username">Username:</label>#}
+{#                <input type="text" id="id_user_name" name="username" placeholder="username" autofocus required/>#}
+{#            </p>#}
+{#            <p>#}
+{#                <label for="id_password">Password:</label>#}
+{#                <input type="password" id="id_password" name="password" placeholder="Password" required/>#}
+{#            </p>#}
+{##}
+{#            <input type="submit" value="Confirm"/>#}
+{#        </form>#}
+{#    </div>#}
+{#</body>#}
+{#</html>#}

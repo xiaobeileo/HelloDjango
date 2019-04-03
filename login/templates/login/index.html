@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{#{% load staticfiles %}#}
+{% block title %}Home Page{% endblock %}
+{% block content %}
+    {% if request.session.is_login %}
+      <h1>Hello, {{ request.session.user_name }}! Welcome come back!</h1>
+        {% else %}
+        <h1>You doesn't login,So you can only see Open Content</h1>
+        <h2><a href="/user/login">Here you can Click to Login</a></h2>
+    {% endif %}
+
+{% endblock %}

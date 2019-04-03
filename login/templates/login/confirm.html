@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Regiseter Confirm{% endblock %}
+{% block content %}
+    <div class="row">
+        {% if message %}
+            <h1 class="text-center">{{ message }}</h1>
+        {% endif %}
+    </div>
+    <script>
+        window.setTimeout("window.location='/user/login/'",2000);
+    </script>
+{% endblock %}
